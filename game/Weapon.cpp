@@ -1900,11 +1900,30 @@ rvWeapon::BeginAttack
 ================
 */
 void rvWeapon::BeginAttack( void ) {
-	wsfl.attack = true;
+	//wsfl.attack = true;
 
-	if ( status != WP_OUTOFAMMO ) {
-		lastAttack = gameLocal.time;
+	//if ( status != WP_OUTOFAMMO ) {
+	//	lastAttack = gameLocal.time;
+	//}
+
+	if (gameLocal.isClient)
+	{
+		return;
 	}
+
+	//position
+	idVec3 origin = owner->GetEyePosition() + owner->viewAxis[0] * 80.0f;
+	idVec3 angles = owner->viewAngles.ToAngularVelocity();
+
+	// turrest spawn
+	idDict args;
+	args.Set("classname", "idDeplyTurret");
+	args.SetVector("origin", origin);
+	args.SetVector("angles", angles);
+
+	idEntity* ent;
+	gameLocal.SpawnEntityDef(args, &ent);
+	gameLocal.Printf("Planted :) \n");
 }
 
 /*

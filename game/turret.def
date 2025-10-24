@@ -4,5 +4,6 @@ entityDef deploy_turret
 	"model"         "model/monsters/turret/lower_turret.lwo"
 	"health"        "100"
 	fireRate"       "0,2"
-	damage          "10"
+	"damage"          "10"
+	
 }

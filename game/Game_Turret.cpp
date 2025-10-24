@@ -18,12 +18,13 @@ void idDeployTurret::Spawn(void) {
     fireRate = spawnArgs.GetFloat("fire_rate", "0.2");
     damage = spawnArgs.GetFloat("damage", "20");
 
-    // Set the model for this turret from the spawnArgs
+  
     SetModel(spawnArgs.GetString("model"));
 
-    // Set up physics so it’s solid and doesn’t fall through the floor
+
     physicsObj.SetContents(CONTENTS_SOLID);
-    physicsObj.SetClipModel(new idClipModel(GetPhysics()->GetClipModel()->Handle(), 0), 1.0f);
+    idClipModel* clip = new idClipModel(GetModelDefHandle());
+    physicsObj.SetClipModel(clip, 1.0f);
     SetPhysics(&physicsObj);
     BecomeActive(TH_PHYSICS);
 
@@ -64,4 +65,16 @@ void idDeployTurret::Think(void) {
 
 void idDeployTurret::FireAtTarget(idEntity* target) {
     idVec3 dir = target->GetPhysics()->GetOrigin() - GetPhysics()->GetOrigin();
-    d
+}
+
+void idDeployTurret::Save(idSaveGame* savefile) const {
+    savefile->WriteInt(nextFireTime);
+    savefile->WriteFloat(fireRate);
+    savefile->WriteFloat(damage);
+}
+
+void idDeployTurret::Restore(idRestoreGame* savefile) {
+    savefile->ReadInt(nextFireTime);
+    savefile->ReadFloat(fireRate);
+    savefile->ReadFloat(damage);
+}

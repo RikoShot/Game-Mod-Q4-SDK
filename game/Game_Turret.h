@@ -11,21 +11,22 @@ public:
 
     idDeployTurret();
 
-    virtual void spawn(void);
-    virtual void Think(void);
-    virtual void FireAtTarget(idEntity* target);
-    virtual void Save(idSaveGame* savefile) const;
-    virtual void Restore(idRestoreGame* savefile);
+    void Spawn(void);
+    void Think(void);
+    void FireAtTarget(idEntity* target);
+    void Save(idSaveGame* savefile) const;
+    void Restore(idRestoreGame* savefile);
 
 private:
 
     int nextFireTime;
     float fireRate;
-    float dmamge;
+    float damage;
 
     void InitTurret(void);
 
     idPhysics_RigidBody physicsObj;
 };
+
 
 #endif
