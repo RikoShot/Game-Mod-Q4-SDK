@@ -11,6 +11,7 @@
 #include "ai/AI_Manager.h"
 #include "ai/AAS_tactical.h"
 #include "Game_Log.h"
+#include "Game_Turret.h"
 // RAVEN END
 
 //#define UI_DEBUG	1

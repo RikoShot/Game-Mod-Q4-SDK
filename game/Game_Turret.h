@@ -7,20 +7,21 @@ class idDeployTurret : public idEntity
 {
 public:
 
-    CLASS_STATES_PROTOTYPE(idDeployTurret);
+    CLASS_PROTOTYPE(idDeployTurret);
 
     idDeployTurret();
 
-    void spawn(void);
-    void Think(void);
-    void FireAtTarget(idEntity* target);
+    virtual void spawn(void);
+    virtual void Think(void);
+    virtual void FireAtTarget(idEntity* target);
+    virtual void Save(idSaveGame* savefile) const;
+    virtual void Restore(idRestoreGame* savefile);
 
-private:
-
-    float nextFireTime;
+    int nextFireTime;
     float fireRate;
     float dmamge;
 
+    void InitTurret(void);
 };
 
 #endif
