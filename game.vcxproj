@@ -290,6 +290,7 @@
     <ClCompile Include="game\Game_local.cpp" />
     <ClCompile Include="game\Game_Log.cpp" />
     <ClCompile Include="game\Game_network.cpp" />
+    <ClCompile Include="game\Game_Turret.cpp" />
     <ClCompile Include="game\Healing_Station.cpp" />
     <ClCompile Include="game\Icon.cpp" />
     <ClCompile Include="game\IconManager.cpp" />
@@ -415,6 +416,7 @@
     <ClInclude Include="game\Game_Debug.h" />
     <ClInclude Include="game\Game_local.h" />
     <ClInclude Include="game\Game_Log.h" />
+    <ClInclude Include="game\Game_Turret.h" />
     <ClInclude Include="game\Healing_Station.h" />
     <ClInclude Include="game\Icon.h" />
     <ClInclude Include="game\IconManager.h" />
@@ -483,6 +485,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="game\Game.def" />
+    <None Include="game\turret.def" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="idlib.vcxproj">

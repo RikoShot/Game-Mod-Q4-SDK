@@ -17,11 +17,15 @@ public:
     virtual void Save(idSaveGame* savefile) const;
     virtual void Restore(idRestoreGame* savefile);
 
+private:
+
     int nextFireTime;
     float fireRate;
     float dmamge;
 
     void InitTurret(void);
+
+    idPhysics_RigidBody physicsObj;
 };
 
 #endif
